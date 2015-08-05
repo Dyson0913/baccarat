@@ -1,0 +1,4 @@
+*.swf
+*.bak
+baccarat/obj/*
+baccarat/bin/*

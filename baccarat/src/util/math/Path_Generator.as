@@ -21,6 +21,7 @@ package util.math
 		public function init():void
 		{
 			CurveModifiers.init();
+			_model.putValue("path",[]);
 			_model.putValue("player_pokerpath", [[1458.45, 154.15], [1097.2, 429.45], [766.25, 301.75]]);
 			_model.putValue("banker_pokerpath", [[1458.45, 154.15], [1097.2, 429.45], [1077.25, 301.75]]);
 		}
@@ -33,7 +34,7 @@ package util.math
 		
 		public function get_recoder_path():Array
 		{
-			var path:Array = _model.getValue("pokerpath");
+			var path:Array = _model.getValue("path");
 			//utilFun.Log("arr = " + path.length);
 			var resultPath:Array = [];
 			for (var i:int = 0; i < path.length; i++)

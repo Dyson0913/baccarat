@@ -56,8 +56,8 @@ package
 		public var _settle:Visual_Settle = new Visual_Settle();
 		
 		//test
-		//public var _test:Visual_testInterface = new Visual_testInterface();
-		//public var _primitive:Visual_primitive = new Visual_primitive();
+		public var _test:Visual_testInterface = new Visual_testInterface();
+		public var _primitive:Visual_primitive = new Visual_primitive();
 		
 		//[ProcessSuperclass]
 		//public var _vibase:ViewBase = new ViewBase();

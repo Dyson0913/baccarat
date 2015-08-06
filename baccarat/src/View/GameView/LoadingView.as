@@ -42,8 +42,8 @@ package View.GameView
 		[Inject]
 		public var _regular:RegularSetting;	
 		
-		//[Inject]
-		//public var _visual_test:Visual_testInterface;
+		[Inject]
+		public var _visual_test:Visual_testInterface;
 		
 		
 		
@@ -74,10 +74,10 @@ package View.GameView
 			//testroad();		
 			
 			
-			_regular.strdotloop(view.ItemList[0]["_Text"],20,40);			
-			utilFun.SetTime(connet, 2);
-			
-			//_visual_test.init();
+			//_regular.strdotloop(view.ItemList[0]["_Text"],20,40);			
+			//utilFun.SetTime(connet, 2);
+			//
+			_visual_test.init();
 		}
 		
 		public function testroad():void

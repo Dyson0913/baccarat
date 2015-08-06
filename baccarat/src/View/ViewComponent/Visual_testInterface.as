@@ -1,5 +1,6 @@
 package View.ViewComponent 
 {
+	import flash.display.DisplayObject;
 	import flash.display.Graphics;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -27,16 +28,13 @@ package View.ViewComponent
 	 */
 	public class Visual_testInterface  extends VisualHandler
 	{
-		//public var mouse:MouseTracker;
+		public var mouse:MouseTracker;
 		
-		//[Inject]
-		//public var _primitvie:Visual_primitive;
-		//
-		//[Inject]
-		//public var _poker:Visual_poker;
-		//
-		//[Inject]
-		//public var _path:Path_Generator;
+		[Inject]
+		public var _primitvie:Visual_primitive;	
+		
+		[Inject]
+		public var _path:Path_Generator;
 		
 		public function Visual_testInterface() 
 		{
@@ -53,18 +51,20 @@ package View.ViewComponent
 			btn.mouseup = up;			
 			btn.Create_by_list(4, ["betcomfirmbtn"], 0, 0, 4, 110, 0, "Btn_");
 			
-			//_primitvie.init();
-			//_primitvie.recoderEvent = true;
+		
 			
 			//point test
-			//mouse = new MouseTracker();
-			//add(mouse);
-			//mouse.init();			
-			//mouse.mousemove = _primitvie.g_point_mouse_down;
-			//mouse.mouseup = _primitvie.g_point_mouse_up;
+			mouse = new MouseTracker();
+			add(mouse);
+			mouse.init();			
+			mouse.mousemove = _primitvie.g_point_mouse_down;
+			mouse.mouseup = _primitvie.g_point_mouse_up;
+			
+			_primitvie.init();
+			_primitvie.recoderEvent = true;
 			
 			//_primitvie.g_line =  mouse.graphics;
-			//_path.init();		
+			_path.init();		
 			
 		
 		}		
@@ -75,7 +75,10 @@ package View.ViewComponent
 			
 			if ( idx == 0) 
 			{				
-			
+				var path:Array = _path.get_recoder_path();
+				var coin:MovieClip = new coin_1;
+				add(coin);
+				follew_path(coin, path);
             }
 			  else if (idx == 1)
 			  {
@@ -98,6 +101,22 @@ package View.ViewComponent
 		}			
 		
 		
+		//sock in coin
+		public function follew_path(mc:DisplayObjectContainer, path):void
+		{
+			mc.x = path[0].x;
+				mc.y = path[0].y;
+				Tweener.addTween(mc, {
+					x:path [path.length -1].x,
+					y:path [path.length -1].y,
+			       _bezier:_path.makeBesierArray(path),
+			time:1, transition:"easeInOutQuad",onComplete:ok, onCompleteParams:[mc,GetSingleItem("_view").parent.parent]});				
+		}
+		
+		public function ok(mc:DisplayObjectContainer,contain:Sprite):void
+		{
+			contain.removeChild(mc);		
+		}
 		
 		public function up(e:Event, idx:int):Boolean
 		{			

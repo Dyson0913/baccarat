@@ -86,8 +86,8 @@ package View.ViewComponent
 			mc.x = newx;
 			mc.y = newy;
             add(mc);
-            var t:TextField = new TextField;
-            t.text = _model.getValue("pokerpath").length.toString();
+            var t:TextField = new TextField;			
+            t.text = _model.getValue("path").length.toString();
 			mc.addChild (t);
 			
 			if( recoderEvent) dispatcher(new ArrayObject([newx, newy],"recode_path"));

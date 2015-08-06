@@ -180,12 +180,13 @@ package ConnectModule.websocket
 						if ( card_type == CardType.PLAYER)
 						{
 							dispatcher( new ValueObject( card, modelName.PLAYER_POKER) );
-							dispatcher(new ModelEvent("playerpokerAni"));
+							dispatcher(new Intobject(modelName.PLAYER_POKER, "playerpokerAni"));							
 						}
 						else if ( card_type == CardType.BANKER)
 						{							
 						    dispatcher( new ValueObject(card, modelName.BANKER_POKER) );							
-							dispatcher(new ModelEvent("playerpokerAni2"));
+							//dispatcher(new ModelEvent("playerpokerAni"));
+							dispatcher(new Intobject(modelName.BANKER_POKER, "playerpokerAni"));
 						}
 						
 						break;

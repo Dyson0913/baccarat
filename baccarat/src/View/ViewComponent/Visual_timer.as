@@ -25,6 +25,15 @@ package View.ViewComponent
 			
 		}
 		
+		public function init():void
+		{
+			var countDown:MultiObject = prepare(modelName.REMAIN_TIME,new MultiObject()  , GetSingleItem("_view").parent.parent);
+		   countDown.Create_by_list(1, [ResName.Timer], 0, 0, 1, 0, 0, "time_");
+		   countDown.container.x = 350;
+		   countDown.container.y = 280;
+		   countDown.container.visible = false;
+		}
+		
 		[MessageHandler(type = "Model.ModelEvent", selector = "display")]
 		public function display():void
 		{

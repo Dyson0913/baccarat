@@ -2,6 +2,7 @@ package util.math
 {
 	import Model.Model;
 	import caurina.transitions.properties.CurveModifiers;
+	import Model.valueObject.*;
 	
 	/**
 	 * handle about Path
@@ -10,8 +11,7 @@ package util.math
 	public class Path_Generator 
 	{
 		[Inject]
-		public var _model:Model;
-		
+		public var _model:Model;		
 		
 		public function Path_Generator() 
 		{
@@ -25,7 +25,31 @@ package util.math
 			_model.putValue("banker_pokerpath", [[1458.45, 154.15], [1097.2, 429.45], [1077.25, 301.75]]);
 		}
 		
-		public function getPath(pathPoint:Array,xdiff:int):Array
+		[MessageHandler(type="Model.valueObject.ArrayObject",selector="recode_path")]
+		public function path_update(arrob:ArrayObject):void
+		{			
+			_model.getValue("path").push(arrob.Value);			
+		}
+		
+		public function get_recoder_path():Array
+		{
+			var path:Array = _model.getValue("pokerpath");
+			//utilFun.Log("arr = " + path.length);
+			var resultPath:Array = [];
+			for (var i:int = 0; i < path.length; i++)
+			{
+				var arr:Array = path[i];
+				var obj:Object = { x: arr[0], y: arr[1] };
+				resultPath.push (obj);               
+				
+			}
+			resultPath.unshift (resultPath [0]); 
+			resultPath.push (resultPath [resultPath.length -1]);
+			
+			return resultPath;
+		}
+		
+		public function get_Path_isometric(pathPoint:Array,xdiff:int):Array
 		{
 			var path:Array = [];
 			for (var i:int = 0; i < pathPoint.length; i++)

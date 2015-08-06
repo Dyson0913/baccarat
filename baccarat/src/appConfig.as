@@ -53,8 +53,11 @@ package
 		public var _playerinfo:Visual_PlayerInfo = new Visual_PlayerInfo();
 		public var _coin:Visual_Coin = new Visual_Coin();
 		public var _betzone:Visual_betZone = new Visual_betZone();
-		public var _test:Visual_testInterface = new Visual_testInterface();
-		public var _primitive:Visual_primitive = new Visual_primitive();
+		public var _settle:Visual_Settle = new Visual_Settle();
+		
+		//test
+		//public var _test:Visual_testInterface = new Visual_testInterface();
+		//public var _primitive:Visual_primitive = new Visual_primitive();
 		
 		//[ProcessSuperclass]
 		//public var _vibase:ViewBase = new ViewBase();

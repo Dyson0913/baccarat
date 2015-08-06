@@ -24,11 +24,17 @@ package View.ViewComponent
 			
 		}
 		
+		public function init():void
+		{
+			var hintmsg:MultiObject = prepare(modelName.HINT_MSG, new MultiObject()  , GetSingleItem("_view").parent.parent);
+			hintmsg.Create_by_list(1, [ResName.Hint], 0, 0, 1, 0, 0, "time_");
+			hintmsg.container.x = 627.3;
+			hintmsg.container.y = 459.3;
+		}
+		
 		[MessageHandler(type = "Model.ModelEvent", selector = "display")]
 		public function display():void
 		{
-		
-			
 			GetSingleItem(modelName.HINT_MSG).gotoAndStop(1);	
 			_regular.FadeIn( GetSingleItem(modelName.HINT_MSG), 2, 2, _regular.Fadeout);		
 		}

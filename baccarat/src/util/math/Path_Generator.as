@@ -22,8 +22,17 @@ package util.math
 		{
 			CurveModifiers.init();
 			_model.putValue("path",[]);
-			_model.putValue("player_pokerpath", [[1458.45, 154.15], [1097.2, 429.45], [766.25, 301.75]]);
-			_model.putValue("banker_pokerpath", [[1458.45, 154.15], [1097.2, 429.45], [1077.25, 301.75]]);
+			_model.putValue("evil", [[1427, 889], [962.4, 457]]);
+			_model.putValue("angel", [[504, 857], [959,393]]);
+			_model.putValue("bigevil", [[1316, 759], [966,409]]);
+			_model.putValue("bigangel", [[574, 762], [954,398]]);
+			_model.putValue("perevil", [[1169, 795], [952, 396]]);			
+			_model.putValue("perangel", [[780, 777], [954, 397]]);
+			
+			_model.putValue("L_same", [[489, 653], [967,402]]);
+			_model.putValue("R_same", [[1425, 647], [949,417]]);
+			
+			
 		}
 		
 		[MessageHandler(type="Model.valueObject.ArrayObject",selector="recode_path")]
@@ -83,6 +92,7 @@ package util.math
             }			
             return bezier;
         }
+		
 	}
 
 }

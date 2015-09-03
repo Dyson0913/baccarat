@@ -69,6 +69,53 @@ package View.ViewComponent
 		
 		}		
 		
+		public function getCoin():void
+		{
+			_model.putValue("coin_list", [100, 500, 1000, 5000, 10000]);
+			
+			//先收再吐
+			
+			
+			var betzone:Array = [0, 1, 2, 3, 4, 5];// , 6, 7, 8];
+			var betzone_name:Array = ["BetPAEvil", "BetPAAngel", "BetPABigEvil", "BetPABigAngel", "BetPAUnbeatenEvil", "BetPAPerfectAngel"];// , 6, 7, 8];
+			
+		    var bet_name_to_idx:DI = new DI();
+			var bet_idx_to_name:DI = new DI();
+			for ( var i:int = 0; i < betzone.length ; i++)
+			{
+				bet_name_to_idx.putValue(betzone_name[i], i);
+				bet_idx_to_name.putValue(i, betzone_name[i]);
+			}		  
+			
+			_model.putValue("Bet_name_to_idx", bet_name_to_idx);		
+			_model.putValue("Bet_idx_to_name", bet_idx_to_name);
+			
+			var clean:Array = [ 0, 1, 2, 3, 4, 5, 6];
+			//TODO rever zone
+			
+			//  get zone coin by clean[i]
+			var one_zone_coin:Array = [100, 100, 100, 200, 500, 1000];
+			
+				var name_to_idx:DI = _model.getValue("Bet_name_to_idx");
+			var idx_to_name:DI = _model.getValue("Bet_idx_to_name");
+			
+			var str:String =  idx_to_name[0];
+			var path:Object = { str:[[1427, 889], [962.4, 457]],
+											str:[[504, 857], [959,393]],
+											str: [[1316, 759], [966,409]],
+											str:[[574, 762], [954,398]],
+											str:[[1169, 795], [952, 396]],
+											str:[[780, 777], [954, 397]]
+			};			
+										
+			_model.putValue("coin_path ",path);		
+									
+			
+			
+			
+			
+		}
+		
 		public function test(e:Event, idx:int):Boolean
 		{
 			utilFun.Log("aa=" + idx);	
@@ -76,13 +123,14 @@ package View.ViewComponent
 			if ( idx == 0) 
 			{				
 				var path:Array = _path.get_recoder_path();
-				var coin:MovieClip = new coin_1;
+			var coin:MovieClip = utilFun.GetClassByString("Bet_coin");
+				
 				add(coin);
 				follew_path(coin, path);
             }
 			  else if (idx == 1)
 			  {
-				
+				_model.putValue("path",[]);
 				  
 			  }
 			   else if (idx == 2)

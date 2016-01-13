@@ -21,16 +21,20 @@ package util.math
 		public function init():void
 		{
 			CurveModifiers.init();
-			_model.putValue("path",[]);
-			_model.putValue("evil", [[1427, 889], [962.4, 457]]);
-			_model.putValue("angel", [[504, 857], [959,393]]);
-			_model.putValue("bigevil", [[1316, 759], [966,409]]);
-			_model.putValue("bigangel", [[574, 762], [954,398]]);
-			_model.putValue("perevil", [[1169, 795], [952, 396]]);			
-			_model.putValue("perangel", [[780, 777], [954, 397]]);
+			_model.putValue("path", []);
 			
-			_model.putValue("L_same", [[489, 653], [967,402]]);
-			_model.putValue("R_same", [[1425, 647], [949,417]]);
+			var path:Object = { "BetPAEvil":[[1427, 889], [962.4, 457]],
+											"BetPAAngel":[[504, 857], [959,393]],
+											"BetPABigEvil": [[1316, 759], [966,409]],
+											"BetPABigAngel":[[574, 762], [954,398]],
+											"BetPAUnbeatenEvil":[[1169, 795], [952, 396]],
+											"BetPAPerfectAngel":[[780, 777], [954, 397]]
+			};			
+										
+			_model.putValue("coin_path ",path);		
+									
+		//	_model.putValue("L_same", [[489, 653], [967,402]]);
+		//	_model.putValue("R_same", [[1425, 647], [949,417]]);
 			
 			
 		}

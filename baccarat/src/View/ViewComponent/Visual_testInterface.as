@@ -96,16 +96,16 @@ package View.ViewComponent
 			//  get zone coin by clean[i]
 			var one_zone_coin:Array = [100, 100, 100, 200, 500, 1000];
 			
-				var name_to_idx:DI = _model.getValue("Bet_name_to_idx");
+			var name_to_idx:DI = _model.getValue("Bet_name_to_idx");
 			var idx_to_name:DI = _model.getValue("Bet_idx_to_name");
 			
 			var str:String =  idx_to_name[0];
-			var path:Object = { str:[[1427, 889], [962.4, 457]],
-											str:[[504, 857], [959,393]],
-											str: [[1316, 759], [966,409]],
-											str:[[574, 762], [954,398]],
-											str:[[1169, 795], [952, 396]],
-											str:[[780, 777], [954, 397]]
+			var path:Object = { "BetPAEvil":[[1427, 889], [962.4, 457]],
+											"BetPAAngel":[[504, 857], [959,393]],
+											"BetPABigEvil": [[1316, 759], [966,409]],
+											"BetPABigAngel":[[574, 762], [954,398]],
+											"BetPAUnbeatenEvil":[[1169, 795], [952, 396]],
+											"BetPAPerfectAngel":[[780, 777], [954, 397]]
 			};			
 										
 			_model.putValue("coin_path ",path);		
@@ -123,7 +123,7 @@ package View.ViewComponent
 			if ( idx == 0) 
 			{				
 				var path:Array = _path.get_recoder_path();
-			var coin:MovieClip = utilFun.GetClassByString("Bet_coin");
+				var coin:MovieClip = utilFun.GetClassByString("Bet_coin");
 				
 				add(coin);
 				follew_path(coin, path);

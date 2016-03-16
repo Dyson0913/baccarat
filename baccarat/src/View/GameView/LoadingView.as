@@ -42,8 +42,8 @@ package View.GameView
 		[Inject]
 		public var _regular:RegularSetting;	
 		
-		[Inject]
-		public var _visual_test:Visual_testInterface;
+		//[Inject]
+		//public var _visual_test:Visual_testInterface;
 		
 		
 		
@@ -68,16 +68,16 @@ package View.GameView
 			if (View.Value != modelName.Loading) return;
 			super.EnterView(View);
 			var view:MultiObject = prepare("_view", new MultiObject() , this);
-			view.Create_by_list(1, [ResName.Bet_Scene], 0, 0, 1, 0, 0, "a_");			
+			view.Create_by_list(1, [ResName.Loading_Scene], 0, 0, 1, 0, 0, "a_");			
 			_tool = new AdjustTool();
 			//paitest()
 			//testroad();		
 			
 			
-			//_regular.strdotloop(view.ItemList[0]["_Text"],20,40);			
-			//utilFun.SetTime(connet, 2);
-			//
-			_visual_test.init();
+			_regular.strdotloop(view.ItemList[0]["_Text"],20,40);			
+			utilFun.SetTime(connet, 2);
+			
+			//_visual_test.init();
 		}
 		
 		public function testroad():void

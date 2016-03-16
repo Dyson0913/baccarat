@@ -21,22 +21,8 @@ package util.math
 		public function init():void
 		{
 			CurveModifiers.init();
-			_model.putValue("path", []);
-			
-			var path:Object = { "BetPAEvil":[[1427, 889], [962.4, 457]],
-											"BetPAAngel":[[504, 857], [959,393]],
-											"BetPABigEvil": [[1316, 759], [966,409]],
-											"BetPABigAngel":[[574, 762], [954,398]],
-											"BetPAUnbeatenEvil":[[1169, 795], [952, 396]],
-											"BetPAPerfectAngel":[[780, 777], [954, 397]]
-			};			
-										
-			_model.putValue("coin_path ",path);		
-									
-		//	_model.putValue("L_same", [[489, 653], [967,402]]);
-		//	_model.putValue("R_same", [[1425, 647], [949,417]]);
-			
-			
+			_model.putValue("player_pokerpath", [[1458.45, 154.15], [1097.2, 429.45], [766.25, 301.75]]);
+			_model.putValue("banker_pokerpath", [[1458.45, 154.15], [1097.2, 429.45], [1077.25, 301.75]]);
 		}
 		
 		[MessageHandler(type="Model.valueObject.ArrayObject",selector="recode_path")]
@@ -47,7 +33,7 @@ package util.math
 		
 		public function get_recoder_path():Array
 		{
-			var path:Array = _model.getValue("path");
+			var path:Array = _model.getValue("pokerpath");
 			//utilFun.Log("arr = " + path.length);
 			var resultPath:Array = [];
 			for (var i:int = 0; i < path.length; i++)
@@ -96,7 +82,6 @@ package util.math
             }			
             return bezier;
         }
-		
 	}
 
 }
